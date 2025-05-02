@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.PayslipController">
+    <TextField fx:id="employeeIdField" promptText="Employee ID" layoutX="50" layoutY="50" />
+    <TextArea fx:id="payslipDetailsArea" layoutX="50" layoutY="100" prefHeight="300" prefWidth="400" editable="false"/>
+
+    <Button text="Generate Payslip" layoutX="50" layoutY="420" onAction="#generatePayslip"/>
+</AnchorPane>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.PayrollController">
+    <TextField fx:id="employeeIdField" promptText="Employee ID" layoutX="50" layoutY="50" />
+    <TextField fx:id="grossSalaryField" promptText="Gross Salary" layoutX="50" layoutY="100" editable="false"/>
+    <TextField fx:id="deductionsField" promptText="Deductions" layoutX="50" layoutY="150" editable="false"/>
+    <TextField fx:id="netSalaryField" promptText="Net Salary" layoutX="50" layoutY="200" editable="false"/>
+
+    <Button text="Calculate Payroll" layoutX="50" layoutY="250" onAction="#calculatePayroll"/>
+</AnchorPane>

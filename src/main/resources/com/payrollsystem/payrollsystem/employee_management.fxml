@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.EmployeeController">
+    <TextField fx:id="nameField" promptText="Employee Name" layoutX="50" layoutY="50" />
+    <TextField fx:id="departmentField" promptText="Department" layoutX="50" layoutY="100" />
+    <TextField fx:id="positionField" promptText="Position" layoutX="50" layoutY="150" />
+    <TextField fx:id="basicSalaryField" promptText="Basic Salary" layoutX="50" layoutY="200" />
+    <TextField fx:id="workingHoursField" promptText="Working Hours" layoutX="50" layoutY="250" />
+    <TextField fx:id="overtimeRateField" promptText="Overtime Rate" layoutX="50" layoutY="300" />
+
+    <Button text="Add Employee" layoutX="50" layoutY="350" onAction="#addEmployee"/>
+</AnchorPane>

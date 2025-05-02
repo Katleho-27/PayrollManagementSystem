@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ReportController">
+    <PieChart fx:id="payrollExpenseChart" layoutX="50" layoutY="50" prefHeight="400" prefWidth="500"/>
+
+    <Button text="Generate Report" layoutX="50" layoutY="470" onAction="#generateReport"/>
+</AnchorPane>
