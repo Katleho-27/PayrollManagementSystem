@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.payrollmanagementsystem.controller.SalaryController"
+            style="-fx-background-color: #181824; -fx-font-family: 'Arial', sans-serif;">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #252537; -fx-padding: 15; -fx-border-width: 0 0 1 0; -fx-border-color: #33334d;">
+            <Label text="Salary Management" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0; -fx-padding: 0 20;" />
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER" style="-fx-background-color: #1e1e2f; -fx-padding: 15; -fx-pref-width: 240;">
+            <Label text="Navigation" style="-fx-font-size: 16px; -fx-text-fill: #b0b0b0; -fx-font-weight: bold; -fx-padding: 10 0;" />
+            <Separator style="-fx-background-color: #3a3a4a; -fx-pref-height: 1;" />
+            <Button fx:id="employeeButton" text="Employees" onAction="#handleEmployee"
+                    style="-fx-background-color: #2a2a3a; -fx-text-fill: #e0e0e0; -fx-font-size: 14px; -fx-alignment: center-left; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand; -fx-margin: 5 0;" />
+            <Button fx:id="salaryButton" text="Salaries" onAction="#handleSalary"
+                    style="-fx-background-color: #00b4d8; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-alignment: center-left; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand; -fx-margin: 5 0;" />
+            <Button fx:id="payslipButton" text="Payslips" onAction="#handlePayslip"
+                    style="-fx-background-color: #2a2a3a; -fx-text-fill: #e0e0e0; -fx-font-size: 14px; -fx-alignment: center-left; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand; -fx-margin: 5 0;" />
+            <Button fx:id="reportsButton" text="Analytics" onAction="#handleReports"
+                    style="-fx-background-color: #2a2a3a; -fx-text-fill: #e0e0e0; -fx-font-size: 14px; -fx-alignment: center-left; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand; -fx-margin: 5 0;" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button fx:id="logoutButton" text="Sign Out" onAction="#handleLogout"
+                    style="-fx-background-color: #ff4d6d; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-alignment: center; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand;" />
+        </VBox>
+    </left>
+
+    <!-- Center Content -->
+    <center>
+        <VBox spacing="25" alignment="TOP_CENTER" style="-fx-padding: 30; -fx-background-color: #181824;">
+            <HBox spacing="20" alignment="CENTER" style="-fx-background-color: #2a2a3a; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 3);">
+                <VBox spacing="15">
+                    <Label text="Calculate Salary" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0;" />
+                    <GridPane hgap="15" vgap="12">
+                        <Label text="Employee:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="employeeDropdown" prefWidth="250" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="Basic Salary:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="basicSalaryField" promptText="Enter basic salary" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #70708f;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Overtime Hours:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="overtimeHoursField" promptText="Enter overtime hours" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #70708f;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Allowances:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="allowancesField" promptText="Enter allowances" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #70708f;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Tax (20%):" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="taxField" editable="false" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0;" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Label text="Other Deductions:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextField fx:id="deductionsField" promptText="Enter deductions" style="-fx-background-color: #3a3a4a; -fx-text-fill: #e0e0e0; -fx-prompt-text-fill: #70708f;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        <Label text="Net Salary:" style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <TextField fx:id="netSalaryField" editable="false" style="-fx-background-color: #3a3a4a; -fx-text-fill: #00ff9d; -fx-font-weight: bold;" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button text="Calculate" onAction="#handleCalculate" style="-fx-background-color: #00b4d8; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-padding: 8 20; -fx-background-radius: 5;" />
+                        <Button text="Save" onAction="#handleSave" style="-fx-background-color: #7209b7; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-padding: 8 20; -fx-background-radius: 5;" />
+                    </HBox>
+                </VBox>
+            </HBox>
+            <Label text="Salary Records" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0; -fx-padding: 10 0;" />
+            <TableView fx:id="salaryTable" prefHeight="420" style="-fx-background-color: #2a2a3a; -fx-border-color: #3a3a4a; -fx-border-radius: 8; -fx-table-cell-border-color: #3a3a4a;">
+                <columns>
+                    <TableColumn fx:id="colEmpId" text="Emp ID" prefWidth="80" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colName" text="Name" prefWidth="150" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colBasic" text="Basic Salary" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colOvertime" text="Overtime" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colAllowances" text="Allowances" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colTax" text="Tax" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colDeductions" text="Deductions" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                    <TableColumn fx:id="colNetSalary" text="Net Salary" prefWidth="100" style="-fx-text-fill: #e0e0e0; -fx-alignment: center;" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

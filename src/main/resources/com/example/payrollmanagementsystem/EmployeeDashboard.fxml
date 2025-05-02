@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.payrollmanagementsystem.controller.EmployeeDashboardController"
+            style="-fx-background-color: #181824; -fx-font-family: 'Arial', sans-serif;">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #252537; -fx-padding: 15; -fx-border-width: 0 0 1 0; -fx-border-color: #33334d;">
+            <Label text="Employee Portal" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0; -fx-padding: 0 20;" />
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox spacing="10" alignment="TOP_CENTER" style="-fx-background-color: #1e1e2f; -fx-padding: 15; -fx-pref-width: 240;">
+            <Label text="Navigation" style="-fx-font-size: 16px; -fx-text-fill: #b0b0b0; -fx-font-weight: bold; -fx-padding: 10 0;" />
+            <Separator style="-fx-background-color: #3a3a4a; -fx-pref-height: 1;" />
+            <Button text="My Payslip" onAction="#handleViewPayslip"
+                    style="-fx-background-color: #00b4d8; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-alignment: center-left; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand; -fx-margin: 5 0;" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button text="Sign Out" onAction="#handleLogout"
+                    style="-fx-background-color: #ff4d6d; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-alignment: center; -fx-padding: 12 20; -fx-pref-width: 220; -fx-background-radius: 5; -fx-cursor: hand;" />
+        </VBox>
+    </left>
+
+    <!-- Center Content -->
+    <center>
+        <VBox spacing="25" alignment="CENTER" style="-fx-padding: 40; -fx-background-color: #181824;">
+            <Label text="Welcome to Your Dashboard" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0;" />
+            <Label text="Access your payslip and account details with ease."
+                   style="-fx-font-size: 16px; -fx-text-fill: #9090a0; -fx-text-alignment: center; -fx-max-width: 400;" />
+            <Button text="View Payslip" onAction="#handleViewPayslip"
+                    style="-fx-background-color: #00b4d8; -fx-text-fill: #ffffff; -fx-font-size: 14px; -fx-padding: 12 30; -fx-background-radius: 5; -fx-cursor: hand;" />
+        </VBox>
+    </center>
+
+</BorderPane>
