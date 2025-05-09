@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="dark-theme" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.payrollmanagementsystem.controller.PayslipController">
+
+    <left>
+        <VBox spacing="15" style="-fx-background-color: #1f2a36; -fx-padding: 20; -fx-pref-width: 220;">
+            <Label style="-fx-font-size: 22px; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text="Payroll System" />
+            <Separator />
+            <Button fx:id="employeeButton" onAction="#handleEmployee" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-size: 14px;" text="Employee Management" />
+            <Button fx:id="salaryButton" onAction="#handleSalary" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-size: 14px;" text="Salary Calculation" />
+            <Button fx:id="payslipButton" onAction="#handlePayslip" style="-fx-background-color: #16a085; -fx-text-fill: white; -fx-font-size: 14px;" text="Payslip Generator" />
+            <Button fx:id="reportsButton" onAction="#handleReports" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-font-size: 14px;" text="Reports &amp; Charts" />
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button fx:id="logoutButton" onAction="#handleLogout" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px;" text="Logout" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="payslipContainer" spacing="20" style="-fx-padding: 30; -fx-background-color: #2c3e50; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 3); -fx-border-radius: 10;">
+            <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #ecf0f1;" text="Employee Payslip" />
+
+            <TitledPane collapsible="false" contentDisplay="TEXT_ONLY" expanded="true" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold;" text="Employee Information">
+                <GridPane hgap="15" style="-fx-padding: 10; -fx-background-color: skyblue;" vgap="12">
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Employee ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtEmpId" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtName" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Department:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtDepartment" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Position:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtPosition" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </TitledPane>
+
+            <TitledPane collapsible="false" contentDisplay="TEXT_ONLY" expanded="true" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold;" text="Salary Details">
+                <GridPane hgap="15" style="-fx-padding: 10; -fx-background-color: skyblue;" vgap="12">
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Basic Salary:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtBasic" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Overtime Pay:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtOvertime" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Allowances:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtAllowance" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Tax:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtTax" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label style="-fx-text-fill: #ecf0f1;" text="Deductions:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtDeduction" editable="false" style="-fx-background-color: #34495e; -fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <Label style="-fx-text-fill: #f1c40f; -fx-font-weight: bold;" text="Net Salary:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <TextField fx:id="txtNetSalary" editable="false" style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </TitledPane>
+
+            <HBox alignment="CENTER" spacing="20">
+                <Button onAction="#handlePrint" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 8 20; -fx-font-size: 14px;" text="Print Payslip" />
+                <Button onAction="#handleClose" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-padding: 8 20; -fx-font-size: 14px;" text="Close" />
+            </HBox>
+
+            <Label fx:id="lblStatus" style="-fx-text-fill: #f1c40f; -fx-font-size: 12px;" />
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.payrollmanagementsystem.controller.SignUpController"
+      alignment="CENTER" spacing="20" style="-fx-background-color: #1a1a1a; -fx-padding: 40;">
+
+    <Label text="Payroll Management System"
+           style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #e0e0e0;" />
+
+    <VBox spacing="20" style="-fx-background-color: #2d2d2d; -fx-padding: 30; -fx-background-radius: 8;">
+        <effect>
+            <DropShadow color="rgba(0,0,0,0.5)" radius="10" spread="0.2" />
+        </effect>
+
+        <Label text="Create Account"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #ffffff;" />
+
+        <GridPane hgap="15" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints />
+            </columnConstraints>
+
+            <!-- Row 0: Username -->
+            <Label text="Username:"
+                   style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;"
+                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="usernameField" promptText="Enter username"
+                       style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #707070;"
+                       prefWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- Row 1: Password -->
+            <Label text="Password:"
+                   style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" promptText="Enter password"
+                           style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #707070;"
+                           prefWidth="250" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- Row 2: Role -->
+            <Label text="Role:"
+                   style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;"
+                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ChoiceBox fx:id="roleChoiceBox"
+                       style="-fx-background-color: #3d3d3d; -fx-text-fill: white;"
+                       prefWidth="250" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <!-- Row 3: Employee ID -->
+            <Label text="Employee ID:"
+                   style="-fx-font-size: 14px; -fx-text-fill: #b0b0b0;"
+                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="employeeIdField" promptText="Enter employee ID (e.g., EMP001)"
+                       style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #707070;"
+                       prefWidth="250" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                <tooltip>
+                    <Tooltip text="Choose a unique Employee ID for your account"
+                             style="-fx-background-color: #3d3d3d; -fx-text-fill: white;"/>
+                </tooltip>
+            </TextField>
+        </GridPane>
+
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Register" onAction="#handleRegister"
+                    style="-fx-background-color: #4a90e2; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8 25; -fx-background-radius: 4;" />
+            <Button text="Back to Login" onAction="#handleGoToLogin"
+                    style="-fx-background-color: #555555; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8 25; -fx-background-radius: 4;" />
+        </HBox>
+
+        <Label fx:id="statusLabel" style="-fx-font-size: 14px; -fx-text-fill: #e0e0e0;" />
+    </VBox>
+</VBox>
